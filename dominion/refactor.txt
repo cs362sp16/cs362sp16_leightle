@@ -1,0 +1,13 @@
+Leon Leighton
+CS 362
+Documentation for refactoring done in dominion.c
+
+Refactored from switch/case in cardEffect(). New functions placed above cardEffect
+in dominion.c. Code is relatively unchanged from that in the switch/case statement.
+Appropriate arguments passed to the functions, and return values where needed.
+
+adventurer      -->     playAdventurer
+council_room    -->     playCouncil_room
+feast           -->     playFeast
+mine            -->     playMine
+remodel         -->     playRemodel
