@@ -15,10 +15,11 @@ interface.o: interface.h interface.c
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-test: unittest1.c unittest2.c unittest3.c dominion.o rngs.o
+test: unittest1.c unittest2.c unittest3.c unittest4.c dominion.o rngs.o
 	gcc -o unittest1 unittest1.c dominion.o rngs.o $(CFLAGS)
 	gcc -o unittest2 unittest2.c dominion.o rngs.o $(CFLAGS)
 	gcc -o unittest3 unittest3.c dominion.o rngs.o $(CFLAGS)
+	gcc -o unittest4 unittest4.c dominion.o rngs.o $(CFLAGS)
 
 all: playdom player
 
