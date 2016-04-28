@@ -57,5 +57,6 @@ int main()
 		 "Great Hall should add two actions");
 
 	checkasserts();
+	free(g);
 	return 0;
 }

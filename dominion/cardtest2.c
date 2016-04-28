@@ -57,5 +57,6 @@ int main()
 		 "Village should add two actions");
 
 	checkasserts();
+	free(g);
 	return 0;
 }

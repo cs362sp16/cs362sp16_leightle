@@ -90,5 +90,6 @@ int main()
 	myassert(r == -1, "Should not work. Wrong phase (Clean-Up)");
 
 	checkasserts();
+	free(g);
 	return 0;
 }

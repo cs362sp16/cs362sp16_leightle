@@ -51,5 +51,6 @@ int main()
 	myassert(r == 1, "Three of supply are zero. Should end game");
 
 	checkasserts();
+	free(g);
 	return 0;
 }

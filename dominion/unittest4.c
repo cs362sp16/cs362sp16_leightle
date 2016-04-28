@@ -44,5 +44,6 @@ int main()
 	// Initialize supplyCount
 
 	checkasserts();
+	free(g);
 	return 0;
 }

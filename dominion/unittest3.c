@@ -61,5 +61,6 @@ int main()
 	myassert(g->hand[0][0] == smithy, "Smithy should be in hand");
 
 	checkasserts();
+	free(g);
 	return 0;
 }

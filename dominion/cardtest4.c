@@ -19,10 +19,10 @@ void checkasserts()
 	}
 }
 
-// Card Testing: smithy
+// Card Testing: outpost
 int main()
 {
-	printf("Testing card: smithy\n");
+	printf("Testing card: outpost\n");
 	int r, i;
 
 	//Setup a game.
@@ -36,18 +36,22 @@ int main()
 
 	//Make the card we are testing the first in the users hand, and make sure
 	//we play the first user.
-	g->hand[0][0] = smithy;
+	g->hand[0][0] = outpost;
 	g->whoseTurn = 0;
 
-	//Get current number of cards in hand for comparison.
-	i = numHandCards(g);
+	//Get initial outpostPlayed for comparison
+	i = g->outpostPlayed;
 
+	//Playing the outpost card increments the outpostPlayed flag by one,
+	//presumbably for use else where. For this test, I am not determining
+	//whether the playing the card actually causes the correct action, only
+	//that playing the card sets the flag properly. Testing for correct action
+	//would be testing other functionality of the code.
 	playCard(0, 0, 0, 0, g);
 
-	//playCard with smithy should add three cards to the hand, but discard one
-	//(smithy), so the total should be initial + 2.
-	r = numHandCards(g);
-	myassert(r == i + 2, "Smithy should add three cards to hand.");
+	r = g->outpostPlayed;
+	myassert(r == i + 1,
+		 "Outpost should increment the outpostPlayed flag by 1.");
 
 	checkasserts();
 	free(g);
