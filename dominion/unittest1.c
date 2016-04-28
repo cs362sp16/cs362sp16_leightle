@@ -1,5 +1,6 @@
 #include "dominion.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int failed = 0;
 
@@ -21,36 +22,32 @@ void checkasserts()
 // Testing isGameOver
 int main()
 {
-	//Setup a game to test
-	struct gameState g;
+	int r, i;
 
-	int k[10] =
-	    { smithy, adventurer, gardens, embargo, cutpurse, mine, ambassador,
-		outpost, baron, tribute
-	};
+	//Setup an empty game.
+	struct gameState *g = calloc(1, sizeof(struct gameState));
 
-	int r = initializeGame(2, k, 5, &g);
+	// Initialize supplyCount
+	for (i = 0; i < treasure_map; i++) {
+		g->supplyCount[i] = 10;
+	}
 
-	myassert(r == 0, "No duplicates, 2 players, should succeed");
-
-	// After initialization, neither of the conditions for game over should be
-	// met
-
-	r = isGameOver(&g);
-	myassert(r == 0, "Just started game. Should not be over");
+	// None of the conditions for game over should exist.
+	r = isGameOver(g);
+	myassert(r == 0, "Initialzed supplyCount. Should not be over");
 
 	//Set province to 0. Should end game.
-	g.supplyCount[province] = 0;
-	r = isGameOver(&g);
+	g->supplyCount[province] = 0;
+	r = isGameOver(g);
 	myassert(r == 1, "Province is 0. Should end game");
 
 	//Reset province. Then choose any 3 of the other supply and set to zero.
 	//Should end game.
-	g.supplyCount[province] = 10;
-	g.supplyCount[copper] = 0;
-	g.supplyCount[estate] = 0;
-	g.supplyCount[duchy] = 0;
-	r = isGameOver(&g);
+	g->supplyCount[province] = 10;
+	g->supplyCount[copper] = 0;
+	g->supplyCount[estate] = 0;
+	g->supplyCount[duchy] = 0;
+	r = isGameOver(g);
 	myassert(r == 1, "Three of supply are zero. Should end game");
 
 	checkasserts();
