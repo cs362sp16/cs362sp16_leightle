@@ -1,0 +1,64 @@
+Leon Leighton
+Assignment 2
+Discussion of unit testing
+
+A summary of the functions and cards test coverage is below. One of the things
+that stands out to me is that the function that executed the most lines, is also
+the only function I tested to have failures, buyCard(). This could just be chance,
+or it could indicate that functions with more lines tend to have a higher chance of
+errors occuring, which is something that we might expect.
+
+I also notice that the coverage for all the cards is the same or similar and the
+the cummulative lines covered grows very little. This makes since as I am
+executing the playCard() function for all four cards, so only the specifics to
+each card changes.
+
+
+Testing isGameOver()
+TEST SUCCESSFULLY COMPLETED.
+Lines executed:1.62% of 616
+Cummulative lines executed:1.62% of 616
+
+
+Testing buyCard()
+FAILED ASSERTION: Should not work. Wrong phase (Action)
+FAILED ASSERTION: Should not work. Wrong phase (Clean-Up)
+Lines executed:4.06% of 616
+Cummulative lines executed:5.68% of 616
+
+
+Testing gainCard()
+TEST SUCCESSFULLY COMPLETED.
+Lines executed:2.44% of 616
+Cummulative lines executed:6.49% of 616
+
+
+Testing supplyCount()
+TEST SUCCESSFULLY COMPLETED.
+Lines executed:0.32% of 616
+Cummulative lines executed:6.49% of 616
+
+
+Testing card: smithy
+TEST SUCCESSFULLY COMPLETED.
+Lines executed:21.27% of 616
+Cummulative lines executed:27.76% of 616
+
+
+Testing card: village
+TEST SUCCESSFULLY COMPLETED.
+Lines executed:21.27% of 616
+Cummulative lines executed:28.41% of 616
+
+
+Testing card: great hall
+TEST SUCCESSFULLY COMPLETED.
+Lines executed:21.27% of 616
+Cummulative lines executed:29.06% of 616
+
+
+Testing card: outpost
+TEST SUCCESSFULLY COMPLETED.
+Lines executed:20.78% of 616
+Cummulative lines executed:29.55% of 616
+
