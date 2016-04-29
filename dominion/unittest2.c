@@ -26,7 +26,7 @@ void checkasserts()
 // numBuys, or in the Buy phase.
 int main()
 {
-	printf("Testing buyCard function.\n");
+	printf("Testing buyCard()\n");
 	int r, i;
 
 	//Setup an empty game.

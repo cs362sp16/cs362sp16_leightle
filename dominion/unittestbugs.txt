@@ -1,0 +1,11 @@
+Leon Leighton
+Assignment 2
+Description of bugs found through unit testing.
+
+Found one bug in the buyCard() function with unittest2. Function does not check
+if in the correct phase when buying cards. Running test outputs the following:
+
+$ ./unittest2
+Testing buyCard function.
+FAILED ASSERTION: Should not work. Wrong phase (Action)
+FAILED ASSERTION: Should not work. Wrong phase (Clean-Up)

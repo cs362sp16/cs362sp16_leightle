@@ -22,6 +22,7 @@ void checkasserts()
 // Testing isGameOver
 int main()
 {
+	printf("Testing isGameOver()\n");
 	int r, i;
 
 	//Setup an empty game.
