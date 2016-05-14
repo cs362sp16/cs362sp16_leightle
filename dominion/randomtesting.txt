@@ -1,0 +1,9 @@
+Leon Leighton
+Assignment 3
+
+For smithy and village, there does not appear to be much change in test coverage.
+After going through dominion.c.gcov (included as random.gcov), it does appear that
+my tests touch all lines of all three cards.
+
+The only failures appeared in the test for village, which were not caught by the
+previous unit test.
