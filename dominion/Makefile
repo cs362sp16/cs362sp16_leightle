@@ -56,6 +56,10 @@ unittestresults.out: unittest cardtest playdom
 	echo "GCOV AFTER PLAYING A GAME" >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 
+randomtest: randomtestcard1.c randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard1 randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+	gcc -o randomtestcard2 randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
 all: playdom player cardtest unittest
 
 clean:
