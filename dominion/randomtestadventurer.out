@@ -1,0 +1,7 @@
+Testing card: adventurer
+TEST SUCCESSFULLY COMPLETED.
+GCOV AFTER RUNNING TEST
+File 'dominion.c'
+Lines executed:28.57% of 616
+Creating 'dominion.c.gcov'
+
