@@ -22,20 +22,21 @@ void checkasserts()
 // Card Testing: adventurer
 int main(int argc, char **argv)
 {
-	int n;
+	int seed, n;
+
+	if (argc != 3) {
+		printf("Usage: %s SEED #ofTests\n", argv[0]);
+		exit(1);
+	} else {
+		seed = atoi(argv[1]);
+		srand(seed);
+	}
+
+	printf("Testing card: adventurer\n");
+
 	for (n = 0; n < atoi(argv[2]); n++) {
-		int seed;
-
-		if (argc < 2) {
-			printf("Usage: %s SEED\n", argv[0]);
-		} else {
-			seed = atoi(argv[1]);
-			srand(seed);
-		}
-
 		int randPlayers = (rand() % 3) + 2;
 
-		printf("Testing card: adventurer\n");
 		int r = 0;
 		int i = 0;
 		int tr_hand = 0;
@@ -64,7 +65,7 @@ int main(int argc, char **argv)
 
 		//Randomize deck
 		for (i = 0; i < g->deckCount[0]; i++) {
-			deck[0][i] = rand() % (treasure_map + 1);
+			g->deck[0][i] = rand() % (treasure_map + 1);
 		}
 
 		for (i = 0; i < g->handCount[0]; i++) {
@@ -98,8 +99,8 @@ int main(int argc, char **argv)
 		myassert(r == expected,
 			 "Adventurer should add a maximum of 2 treasure cards");
 
-		checkasserts();
 		free(g);
 	}
+	checkasserts();
 	return 0;
 }

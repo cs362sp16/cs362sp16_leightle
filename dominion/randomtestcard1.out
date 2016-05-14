@@ -1,0 +1,7 @@
+Testing card: smithy
+TEST SUCCESSFULLY COMPLETED.
+GCOV AFTER RUNNING TEST
+File 'dominion.c'
+Lines executed:22.24% of 616
+Creating 'dominion.c.gcov'
+

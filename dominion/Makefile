@@ -61,6 +61,18 @@ randomtest: randomtestcard1.c randomtestcard2.c randomtestadventurer.c dominion.
 	gcc -o randomtestcard2 randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 	gcc -o randomtestadventurer randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 
+randomtestresults: randomtest
+	./randomtestcard1 13 100 >> randomtestcard1.out
+	echo "GCOV AFTER RUNNING TEST" >> randomtestcard1.out
+	gcov dominion.c >> randomtestcard1.out
+	./randomtestcard2 13 100 >> randomtestcard2.out
+	echo "GCOV AFTER RUNNING TEST" >> randomtestcard2.out
+	gcov dominion.c >> randomtestcard2.out
+	./randomtestadventurer 13 100 >> randomtestadventurer.out
+	echo "GCOV AFTER RUNNING TEST" >> randomtestadventurer.out
+	gcov dominion.c >> randomtestadventurer.out
+
+
 all: playdom player cardtest unittest
 
 clean:

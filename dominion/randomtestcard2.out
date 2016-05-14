@@ -1,0 +1,18 @@
+Testing card: village
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+FAILED ASSERTION: Village should add two actions
+GCOV AFTER RUNNING TEST
+File 'dominion.c'
+Lines executed:23.21% of 616
+Creating 'dominion.c.gcov'
+
