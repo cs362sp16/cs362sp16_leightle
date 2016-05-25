@@ -62,6 +62,8 @@ randomtest: randomtestcard1.c randomtestcard2.c dominion.o rngs.o
 
 testdominion: testdominion.c dominion.o rngs.o
 	gcc -o testdominion testdominion.c dominion.o rngs.o $(CFLAGS)
+	./testdominion 42 > testdominion.out
+	gcov dominion.c >> testdominion.out
 
 all: playdom player cardtest unittest
 

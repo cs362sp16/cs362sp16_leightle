@@ -1,0 +1,25 @@
+#!/bin/bash
+
+owd=$(pwd)
+
+cd $1
+gcc -o testdominion testdominion.c dominion.c dominion.h rngs.h rngs.c -Wall -g -fpic -coverage -lm
+./testdominion $3 > tf1
+
+cd $2
+gcc -o testdominion testdominion.c dominion.c dominion.h rngs.h rngs.c -Wall -g -fpic -coverage -lm
+./testdominion $3 > tf2
+
+cd $owd
+diff $1/tf1 $2/tf2 > diff.txt
+diff_exit=$?
+
+if [ $diff_exit -eq 1 ]
+then
+    printf "TEST FAILED\ndiff output available in diff.txt\n"
+else
+    printf "TEST PASSED\n"
+	rm diff.txt
+fi
+
+rm $1/tf1 $2/tf2
