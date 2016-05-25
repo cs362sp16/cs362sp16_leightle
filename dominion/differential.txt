@@ -1,0 +1,13 @@
+Leon Leighton
+Assignment 4
+
+After testing against two other students dominion implementations, I did not find
+any differences after running over 500 tests. This could indicate that my testdominion.c
+does not provide enough coverage to show differences, and the coverage is not very high.
+
+The lack of failures could also indicate that the dominion.c files have not diverged
+very much from the original, and I know that this is the case for my dominion.c. This
+is what prompted my looking a second alternate dominion.c to test.
+
+Because of the possibility of lack of divergence from the original dominion.c, I do
+not think that differential testing is a good approach to testing in this case.

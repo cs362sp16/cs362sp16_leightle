@@ -73,6 +73,11 @@ randomtestresults: randomtest
 	gcov dominion.c >> randomtestadventurer.out
 
 
+testdominion: testdominion.c dominion.o rngs.o
+	gcc -o testdominion testdominion.c dominion.o rngs.o $(CFLAGS)
+	./testdominion 42 > testdominion.out
+	gcov dominion.c >> testdominion.out
+
 all: playdom player cardtest unittest
 
 clean:
