@@ -84,7 +84,7 @@ int main()
 	// Wrong phase. Clean-Up phase.
 	g->coins = 10;
 	g->numBuys = 1;
-	g->phase = 0;
+	g->phase = 2;
 
 	r = buyCard(smithy, g);
 	myassert(r == -1, "Should not work. Wrong phase (Clean-Up)");

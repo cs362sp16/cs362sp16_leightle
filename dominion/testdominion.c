@@ -22,6 +22,7 @@ void buyPhase(int *array, struct gameState *g)
 {
 	int i, r, card;
 	int money = 0;
+	g->phase = 1;
 	for (i = 0; i < g->handCount[g->whoseTurn]; i++) {
 		switch (g->hand[g->whoseTurn][i]) {
 		case copper:

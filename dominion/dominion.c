@@ -269,8 +269,12 @@ int buyCard(int supplyPos, struct gameState *state)
 			    ("You do not have enough money to buy that. You have %d coins.\n",
 			     state->coins);
 		return -1;
+	} else if (state->phase != 1) {
+		if (DEBUG)
+			printf("Wrong phase\n");
+		return -1;
 	} else {
-		state->phase = 1;
+		//state->phase = 1;
 		//state->supplyCount[supplyPos]--;
 		gainCard(supplyPos, state, 0, who);	//card goes in discard, this might be wrong.. (2 means goes into hand, 0 goes into discard)
 
@@ -903,9 +907,9 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
 									       +
 									       1];
 					}
-					state->hand[currentPlayer][state->
-								   handCount
-								   [currentPlayer]]
+					state->
+					    hand[currentPlayer][state->handCount
+								[currentPlayer]]
 					    = -1;
 					state->handCount[currentPlayer]--;
 					card_not_discarded = 0;	//Exit the loop
@@ -1030,10 +1034,9 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
 				state->deckCount[nextPlayer]--;
 			} else if (state->discardCount[nextPlayer] > 0) {
 				tributeRevealedCards[0] =
-				    state->discard[nextPlayer][state->
-							       discardCount
-							       [nextPlayer] -
-							       1];
+				    state->
+				    discard[nextPlayer][state->discardCount
+							[nextPlayer] - 1];
 				state->discardCount[nextPlayer]--;
 			} else {
 				//No Card to Reveal
@@ -1056,16 +1059,18 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
 				shuffle(nextPlayer, state);	//Shuffle the deck
 			}
 			tributeRevealedCards[0] =
-			    state->deck[nextPlayer][state->
-						    deckCount[nextPlayer] - 1];
-			state->deck[nextPlayer][state->
-						deckCount[nextPlayer]--] = -1;
+			    state->
+			    deck[nextPlayer][state->deckCount[nextPlayer] - 1];
+			state->
+			    deck[nextPlayer][state->deckCount[nextPlayer]--] =
+			    -1;
 			state->deckCount[nextPlayer]--;
 			tributeRevealedCards[1] =
-			    state->deck[nextPlayer][state->
-						    deckCount[nextPlayer] - 1];
-			state->deck[nextPlayer][state->
-						deckCount[nextPlayer]--] = -1;
+			    state->
+			    deck[nextPlayer][state->deckCount[nextPlayer] - 1];
+			state->
+			    deck[nextPlayer][state->deckCount[nextPlayer]--] =
+			    -1;
 			state->deckCount[nextPlayer]--;
 		}
 
@@ -1287,8 +1292,8 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state,
 	} else {
 		//replace discarded card with last card in hand
 		state->hand[currentPlayer][handPos] =
-		    state->
-		    hand[currentPlayer][(state->handCount[currentPlayer] - 1)];
+		    state->hand[currentPlayer][(state->
+						handCount[currentPlayer] - 1)];
 		//set last card to -1
 		state->hand[currentPlayer][state->handCount[currentPlayer] -
 					   1] = -1;

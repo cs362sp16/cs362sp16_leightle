@@ -65,6 +65,7 @@ int main(int argc, char **argv)
 				}
 			}
 
+			p->phase = 1;
 			if (money >= 8) {
 				printf("0: bought province\n");
 				buyCard(province, p);
@@ -105,6 +106,7 @@ int main(int argc, char **argv)
 				}
 			}
 
+			p->phase = 1;
 			if (money >= 8) {
 				printf("1: bought province\n");
 				buyCard(province, p);
