@@ -1,0 +1,10 @@
+Bug in function play_minion()
+
+Playing the Minion card should increase the number of actions by 1. It appears
+that during some editing this functionality was incorrectly commented out on
+line 640.
+
+Severity: Low. One part of the action of the card is wrong, but otherwise
+correct.
+
+Priority: Low. Problem only occurs if this card is played.
