@@ -135,7 +135,7 @@ int main(int argc, char **argv)
 	while (fgets(buffer, 256, fp) != NULL) {
 		x = (array[i][0] / totalfail) / ((array[i][1] / totalpass) +
 						 (array[i][0] / totalfail));
-		if (x > 0.6) {
+		if (x >= 0.5) {
 			printf(RED "%f%s\n" RESET, x, buffer);
 		} else if (x > 0.3) {
 			printf(YEL "%f%s\n" RESET, x, buffer);
