@@ -9,23 +9,6 @@
 #define YEL   "\x1B[33m"
 #define RESET "\x1B[0m"
 
-int failed = 0;
-
-void myassert(int b, char *msg)
-{
-	if (b == 0) {
-		printf("FAILED ASSERTION: %s\n", msg);
-		failed = 1;
-	}
-}
-
-void checkasserts()
-{
-	if (!failed) {
-		printf("TEST SUCCESSFULLY COMPLETED.\n");
-	}
-}
-
 // Card Testing: adventurer
 int main(int argc, char **argv)
 {
@@ -36,20 +19,14 @@ int main(int argc, char **argv)
 	FILE *fp;
 	float array[lines][2];	//Keep track of fails/passes
 	memset(array, 0, sizeof(array));
-
-	/*if (argc != 3) {
-	   printf("Usage: %s SEED #ofTests\n", argv[0]);
-	   exit(1);
-	   } else {
-	   seed = atoi(argv[1]);
-	   srand(seed);
-	   }
-	 */
 	seed = 1;
-	srand(seed);
-	printf("Testing card: adventurer\n");
 
-	//for (n = 0; n < atoi(argv[2]); n++) {
+	srand(seed);
+
+	// gcov doesn't seem to run correctly unless there has been some usage of
+	// dominion.c already
+	system("./randomtestadventurer 1 1 > /dev/null");
+
 	for (n = 0; n < 100; n++) {
 		int randPlayers = (rand() % 3) + 2;
 
@@ -122,7 +99,7 @@ int main(int argc, char **argv)
 
 		char buffer[256];
 		char *s;
-		system("gcov dominion.c");
+		system("gcov dominion.c > /dev/null");
 		fp = fopen("dominion.c.gcov", "r");
 		if (fp == NULL) {
 
@@ -151,11 +128,7 @@ int main(int argc, char **argv)
 	}
 	int i;
 	char buffer[256];
-/*	for (i = 0; i < lines; i++) {
-		printf("Line: %d\t Failed: %d\t Success:%d\n", i + 1,
-		       array[i][0], array[i][1]);
-	}
-*/
+
 	fp = fopen("tarantula.out", "r");
 	i = 0;
 	float x;
