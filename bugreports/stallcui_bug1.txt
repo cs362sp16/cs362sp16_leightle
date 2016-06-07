@@ -1,0 +1,8 @@
+Bug in function play_council_room()
+
+Playing the Council Room card should cause other players to draw a card. This
+functionality is missing from this function.
+
+Severity: Medium. Causes incorrect gameplay, but does not interrupt the game.
+
+Priority: Low. Problem only occurs if this card is played.

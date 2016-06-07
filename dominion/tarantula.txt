@@ -1,0 +1,11 @@
+I implemented tarantula using gcov and based off of my randomtestadventurer.
+
+to run:
+make tarantula
+./tarantula
+
+This displays colored line output corresponding to the suspiciousness of the
+line of code. Unfortunately, this did not help very much. Most of the lines run
+in both successful and failing tests or don't run for either. While using
+tarantula in this case was not helpful, I can see that it may be useful in other
+situations.

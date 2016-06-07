@@ -1,0 +1,10 @@
+Bug in function play_steward()
+
+Playing the Steward card can result in the current player drawing two cards, or
+possibly trashing two cards. In both of these cases the functionality has been
+commented out. Lines 687 and 694.
+
+Severity: Medium. Functionality of this card is incorrect due to multiple
+problems.
+
+Priority: Low. Problem only occurs if this card is played.

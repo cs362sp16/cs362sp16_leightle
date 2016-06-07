@@ -1,0 +1,24 @@
+In assignment 2 I had found that there was a bug in the buyCard() function.
+
+Specifically, I found the following:
+
+$ ./unittest2
+Testing buyCard function.
+FAILED ASSERTION: Should not work. Wrong phase (Action)
+FAILED ASSERTION: Should not work. Wrong phase (Clean-Up)
+
+My unit test indicated that the buyCard() function was not checking if it was in
+the right phase before buying cards. Even though I had the unit test code, I used
+gdb to verify that the phase was being set before the call to buyCard().
+
+To fix this problem, I added a check to buyCard() so that it exits if the phase
+is not set to 1. After doing so I ran the unit test and it passed. However, I
+discovered that playdom and my testdominion code no longer worked because they
+did not set the phase before attempting to buy cards. I corrected the code in
+both playdom.c and testdominion.c so that they now set the phase correctly
+before attempting to buy cards.
+
+Of Agans' debugging rules, number 1, "Understand the System", was the most
+important. After reading the rules of Dominion it was clear that it used three
+phases during the game. Also, my unit test allowed me to reliably make the code
+fail, which is Agans' rule 2.

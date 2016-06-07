@@ -78,6 +78,10 @@ testdominion: testdominion.c dominion.o rngs.o
 	./testdominion 42 > testdominion.out
 	gcov dominion.c >> testdominion.out
 
+tarantula: randomtestadventurer.c tarantula.c dominion.o rngs.o
+	gcc -o tarantula tarantula.c dominion.o rngs.o $(CFLAGS)
+	gcc -o randomtestadventurer randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+
 all: playdom player cardtest unittest
 
 clean:
